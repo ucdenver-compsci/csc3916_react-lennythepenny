@@ -1,6 +1,76 @@
+// import actionTypes from '../constants/actionTypes';
+// //import runtimeEnv from '@mars/heroku-js-runtime-env'
+// const env = process.env;
+
+// function moviesFetched(movies) {
+//     return {
+//         type: actionTypes.FETCH_MOVIES,
+//         movies: movies
+//     }
+// }
+
+// function movieFetched(movie) {
+//     return {
+//         type: actionTypes.FETCH_MOVIE,
+//         selectedMovie: movie
+//     }
+// }
+
+// function movieSet(movie) {
+//     return {
+//         type: actionTypes.SET_MOVIE,
+//         selectedMovie: movie
+//     }
+// }
+
+// export function setMovie(movie) {
+//     return dispatch => {
+//         dispatch(movieSet(movie));
+//     }
+// }
+
+// export function fetchMovie(movieId) {
+//     return dispatch => {
+//         return fetch(`${env.REACT_APP_API_URL}/movies/${movieId}?reviews=true`, {
+//             method: 'GET',
+//             headers: {
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json',
+//                 'Authorization': localStorage.getItem('token')
+//             },
+//             mode: 'cors'
+//         }).then((response) => {
+//             if (!response.ok) {
+//                 throw Error(response.statusText);
+//             }
+//             return response.json()
+//         }).then((res) => {
+//             dispatch(movieFetched(res));
+//         }).catch((e) => console.log(e));
+//     }
+// }
+
+// export function fetchMovies() {
+//     return dispatch => {
+//         return fetch(`${env.REACT_APP_API_URL}/movies?reviews=true`, {
+//             method: 'GET',
+//             headers: {
+//                 'Accept': 'application/json',
+//                 'Content-Type': 'application/json',
+//                 'Authorization': localStorage.getItem('token')
+//             },
+//             mode: 'cors'
+//         }).then((response) => {
+//             if (!response.ok) {
+//                 throw Error(response.statusText);
+//             }
+//             return response.json()
+//         }).then((res) => {
+//             dispatch(moviesFetched(res));
+//         }).catch((e) => console.log(e));
+//     }
+// }
 import actionTypes from '../constants/actionTypes';
-//import runtimeEnv from '@mars/heroku-js-runtime-env'
-const env = process.env;
 
 function moviesFetched(movies) {
     return {
@@ -31,7 +101,7 @@ export function setMovie(movie) {
 
 export function fetchMovie(movieId) {
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/movies/${movieId}?reviews=true`, {
+        return fetch(`${process.env.REACT_APP_API_URL}/movies/${movieId}?reviews=true`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -39,20 +109,23 @@ export function fetchMovie(movieId) {
                 'Authorization': localStorage.getItem('token')
             },
             mode: 'cors'
-        }).then((response) => {
+        })
+        .then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json()
-        }).then((res) => {
+        })
+        .then((res) => {
             dispatch(movieFetched(res));
-        }).catch((e) => console.log(e));
+        })
+        .catch((e) => console.log(e));
     }
 }
 
 export function fetchMovies() {
     return dispatch => {
-        return fetch(`${env.REACT_APP_API_URL}/movies?reviews=true`, {
+        return fetch(`${process.env.REACT_APP_API_URL}/movies?reviews=true`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -60,13 +133,40 @@ export function fetchMovies() {
                 'Authorization': localStorage.getItem('token')
             },
             mode: 'cors'
-        }).then((response) => {
+        })
+        .then((response) => {
             if (!response.ok) {
                 throw Error(response.statusText);
             }
             return response.json()
-        }).then((res) => {
+        })
+        .then((res) => {
             dispatch(moviesFetched(res));
-        }).catch((e) => console.log(e));
+        })
+        .catch((e) => console.log(e));
+    }
+}
+
+export function fetchTopRatedMovies() {
+    return dispatch => {
+        return fetch(`${process.env.REACT_APP_API_URL}/movies/top-rated`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': localStorage.getItem('token')
+            },
+            mode: 'cors'
+        })
+        .then((response) => {
+            if (!response.ok) {
+                throw Error(response.statusText);
+            }
+            return response.json()
+        })
+        .then((res) => {
+            // You can dispatch an action here if needed
+        })
+        .catch((e) => console.log(e));
     }
 }
