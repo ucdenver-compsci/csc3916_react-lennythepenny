@@ -88,7 +88,9 @@ class MovieDetail extends Component {
             <Card>
                 <Card.Header>Movie Detail</Card.Header>
                 <Card.Body>
-                    <Image className="image" src={selectedMovie.imageUrl} thumbnail />
+                    {selectedMovie.imageUrl && (
+                        <Image className="image" src={selectedMovie.imageUrl} thumbnail />
+                    )}
                 </Card.Body>
                 <ListGroup>
                     <ListGroupItem>{selectedMovie.title}</ListGroupItem>
@@ -105,10 +107,10 @@ class MovieDetail extends Component {
                 </ListGroup>
                 <Card.Body>
                     {selectedMovie.reviews && selectedMovie.reviews.map((review, i) => (
-                        <p key={i}>
-                            <b>{review.username}</b>&nbsp; {review.review}
-                            &nbsp;  <BsStarFill /> {review.rating}
-                        </p>
+                        <div key={i}>
+                            <p><b>{review.username}</b>&nbsp; {review.review}</p>
+                            <p><BsStarFill /> {review.rating}</p>
+                        </div>
                     ))}
                 </Card.Body>
             </Card>
@@ -123,4 +125,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(MovieDetail);
+
 
