@@ -8,6 +8,11 @@ import { BsStarFill} from 'react-icons/bs'
 import {LinkContainer} from 'react-router-bootstrap';
 import{Glyphicon} from 'react-bootstrap';
 
+const imageStyle = {
+    maxWidth: '100%',
+    height: 'auto'
+};
+
 class MovieList extends Component {
     constructor(props) {
         super(props);
@@ -41,7 +46,7 @@ class MovieList extends Component {
                         <Carousel.Item key={movie._id}>
                             <div>
                                 <LinkContainer to={'/movie/'+movie._id} onClick={()=>this.handleClick(movie)}>
-                                    <Nav.Link><Image className="image" src={movie.imageUrl} thumbnail /></Nav.Link>
+                                    <Nav.Link><Image className={imageStyle} src={movie.imageUrl} thumbnail /></Nav.Link>
                                 </LinkContainer>
                             </div>
                             <Carousel.Caption>
