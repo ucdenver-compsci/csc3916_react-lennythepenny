@@ -8,10 +8,10 @@ import { BsStarFill} from 'react-icons/bs'
 import {LinkContainer} from 'react-router-bootstrap';
 import{Glyphicon} from 'react-bootstrap';
 
-const imageStyle = {
-    width: '200px',
-    height: '150px'
-};
+// const imageStyle = {
+//     width: '200px',
+//     height: '150px'
+// };
 
 class MovieList extends Component {
     constructor(props) {
