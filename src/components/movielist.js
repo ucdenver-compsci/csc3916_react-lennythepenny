@@ -9,8 +9,8 @@ import {LinkContainer} from 'react-router-bootstrap';
 import{Glyphicon} from 'react-bootstrap';
 
 const imageStyle = {
-    maxWidth: '100%',
-    height: 'auto'
+    width: '200px',
+    height: '150px'
 };
 
 class MovieList extends Component {
