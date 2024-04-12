@@ -5,6 +5,7 @@ import { fetchMovie } from "../actions/movieActions";
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs';
 import { Image } from 'react-bootstrap';
+import ReviewForm from './reviewform';
 
 class MovieDetail extends Component {
     componentDidMount() {
@@ -49,6 +50,11 @@ class MovieDetail extends Component {
                             <p><BsStarFill /> {review.rating}</p>
                         </div>
                     ))}
+                </Card.Body>
+                    {/* Render the ReviewForm component */}
+                <Card.Body>
+                    <h5>Leave a Review</h5>
+                    <ReviewForm movieId={movieId} />
                 </Card.Body>
             </Card>
         );
