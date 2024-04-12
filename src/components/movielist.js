@@ -6,6 +6,7 @@ import {Image, Nav} from 'react-bootstrap';
 import { Carousel } from 'react-bootstrap';
 import { BsStarFill} from 'react-icons/bs'
 import {LinkContainer} from 'react-router-bootstrap';
+import MovieDetail from './moviedetail'; 
 
 class MovieList extends Component {
     constructor(props) {
@@ -35,6 +36,9 @@ class MovieList extends Component {
             }
 
             return (
+                <div>
+                {/* Render MovieDetail component with movieId prop */}
+                <MovieDetail movieId={"6614c1845292470050ef57ba"} />
                 <Carousel onSelect={this.handleSelect}>
                     {movieList.map((movie) =>
                         <Carousel.Item key={movie._id}>
@@ -51,6 +55,7 @@ class MovieList extends Component {
                     )}
 
                 </Carousel>
+                </div>
             )
         }
 
