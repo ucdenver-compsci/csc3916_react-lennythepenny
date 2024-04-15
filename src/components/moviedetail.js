@@ -186,15 +186,6 @@ class MovieDetail extends Component {
                                 </div>
                             ))}
                         </ListGroupItem>
-                        <ListGroupItem>
-                            <h5>Reviews:</h5>
-                            {selectedMovie.reviews && selectedMovie.reviews.map((review, i) => (
-                                <div key={i}>
-                                    <p><b>{review.username}</b>&nbsp; {review.review}</p>
-                                    <p><BsStarFill /> {review.rating}</p>
-                                </div>
-                            ))}
-                        </ListGroupItem>
                     </ListGroup>
                 </Card.Body>
                 {/* Render the ReviewForm component */}
