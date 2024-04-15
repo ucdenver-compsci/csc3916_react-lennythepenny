@@ -94,28 +94,22 @@ import MovieDetail from './moviedetail';
 class MovieList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            selectedMovieId: null
-        };
         this.handleSelect = this.handleSelect.bind(this);
     }
 
     componentDidMount() {
-        const { dispatch } = this.props;
+        const {dispatch} = this.props;
         dispatch(fetchMovies());
     }
 
     handleSelect(selectedIndex, e) {
-        const { dispatch, movies } = this.props;
-        const selectedMovie = movies[selectedIndex];
-        dispatch(setMovie(selectedMovie));
-        this.setState({ selectedMovieId: selectedMovie._id });
+        const {dispatch} = this.props;
+        dispatch(setMovie(this.props.movies[selectedIndex]));
     }
 
     handleClick = (movie) => {
-        const { dispatch } = this.props;
+        const {dispatch} = this.props;
         dispatch(setMovie(movie));
-        this.setState({ selectedMovieId: movie._id });
     }
 
     render() {
@@ -134,13 +128,13 @@ class MovieList extends Component {
                             </div>
                             <Carousel.Caption>
                                 <h3>{movie.title}</h3>
-                                <BsStarFill glyph={'star'} /> {movie.avgRating} &nbsp;&nbsp; {movie.releaseDate}
+                            <div>
+                            <BsStarFill glyph={'star'} /> {movie.avgRating} &nbsp;&nbsp; {movie.releaseDate}
+                            </div>
                             </Carousel.Caption>
                         </Carousel.Item>
                     )}
                 </Carousel>
-                {/* Render MovieDetail component only for the selected movie */}
-                {selectedMovieId && <MovieDetail movieId={selectedMovieId} />}
             </div>
         )
     }
