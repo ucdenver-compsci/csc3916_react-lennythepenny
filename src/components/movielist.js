@@ -137,7 +137,8 @@ class MovieList extends Component {
 
 const mapStateToProps = state => {
     return {
-        movies: state.movie.movies
+        movies: state.movie.movies,
+        movieId: state.movie.movieId
     }
 }
 
