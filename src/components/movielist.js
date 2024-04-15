@@ -114,8 +114,6 @@ class MovieList extends Component {
 
     render() {
         const { movies } = this.props;
-        const { selectedMovieId } = this.state;
-
         return (
             <div>
                 <Carousel onSelect={this.handleSelect}>
