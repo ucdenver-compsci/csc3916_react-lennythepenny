@@ -17,10 +17,20 @@ class MovieList extends Component {
         this.handleSelect = this.handleSelect.bind(this);
     }
 
+    // componentDidMount() {
+    //     const { dispatch } = this.props;
+    //     dispatch(fetchMovies());
+    // }
     componentDidMount() {
-        const { dispatch } = this.props;
+        const { dispatch, movies } = this.props;
+        if (movies.length > 0) {
+            const firstMovieId = movies[0]._id;
+            dispatch(setMovie(movies[0]));
+            this.setState({ selectedMovieId: firstMovieId });
+        }
         dispatch(fetchMovies());
     }
+
 
     handleSelect(selectedIndex, e) {
         const { dispatch, movies } = this.props;
