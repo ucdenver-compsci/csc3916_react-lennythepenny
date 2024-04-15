@@ -19,7 +19,7 @@ function Movie(props) {
     return (<MovieDetail movieId={movieId} />)
 }
 
-    export default Movie;
+export default Movie;
 
 //CODE FROM THE VIDEO
 // import React, { Component } from 'react';
