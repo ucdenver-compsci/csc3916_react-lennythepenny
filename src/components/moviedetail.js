@@ -63,7 +63,8 @@ class MovieDetail extends Component {
 
 const mapStateToProps = state => {
     return {
-        selectedMovie: state.movie.selectedMovie
+        selectedMovie: state.movie.selectedMovie,
+        movieId: ownProps.movieId
     }
 }
 
