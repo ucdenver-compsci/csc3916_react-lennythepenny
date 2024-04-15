@@ -64,7 +64,6 @@
 //     }
 // }
 
-// export default connect(mapStateToProps)(MovieList);
 import React, { Component } from 'react';
 import { fetchMovies } from "../actions/movieActions";
 import { setMovie } from "../actions/movieActions";
@@ -137,3 +136,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(MovieList);
+
