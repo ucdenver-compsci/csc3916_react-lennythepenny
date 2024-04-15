@@ -72,7 +72,6 @@
 // }
 
 // export default connect(mapStateToProps)(MovieList);
-// movielist.js
 import React, { Component } from 'react';
 import { fetchMovies } from "../actions/movieActions";
 import { setMovie } from "../actions/movieActions";
@@ -82,8 +81,6 @@ import { Carousel } from 'react-bootstrap';
 import { BsStarFill } from 'react-icons/bs'
 import { LinkContainer } from 'react-router-bootstrap';
 import MovieDetail from './moviedetail'; 
-// In MovieList.js where MovieDetail is rendered
-<MovieDetail movieId={movieId} />
 
 class MovieList extends Component {
     constructor(props) {
@@ -137,8 +134,7 @@ class MovieList extends Component {
 
 const mapStateToProps = state => {
     return {
-        movies: state.movie.movies,
-        movieId: state.movie.movieId
+        movies: state.movie.movies
     }
 }
 

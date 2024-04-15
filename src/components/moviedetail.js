@@ -1,4 +1,3 @@
-// // MovieDetail.js
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchMovie } from "../actions/movieActions";
@@ -16,7 +15,7 @@ class MovieDetail extends Component {
     }
 
     render() {
-        const { selectedMovie } = this.props;
+        const { selectedMovie, movieId } = this.props;
 
         if (!selectedMovie) {
             return <div>Loading....</div>;
@@ -61,7 +60,7 @@ class MovieDetail extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
         selectedMovie: state.movie.selectedMovie,
         movieId: ownProps.movieId
@@ -69,6 +68,7 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(MovieDetail);
+
 // import React, { Component } from 'react';
 // import { fetchMovie } from "../actions/movieActions";
 // import {connect} from 'react-redux';
