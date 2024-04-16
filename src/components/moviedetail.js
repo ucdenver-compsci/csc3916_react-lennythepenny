@@ -111,17 +111,12 @@ class MovieDetail extends Component {
                         </ListGroupItem>
                         <ListGroupItem>
                             <h5>Reviews:</h5>
-                            <Row>
-                                {selectedMovie.reviews && selectedMovie.reviews.map((review, i) => (
-                                    <Col key={i} xs={12} sm={6} md={4} lg={3}>
-                                        <div style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
-                                            <p style={{ fontWeight: 'bold' }}>{review.username}</p>
-                                            <p>{review.review}</p>
-                                            <p><BsStarFill /> {review.rating}</p>
-                                        </div>
-                                    </Col>
-                                ))}
-                            </Row>
+                            <Card.Body>
+                                {this.props.selectedMovie.reviews.map((review,i)=> <p key = {i}>
+                                    <b>{review.username}</b>&nbsp; {review.review}
+                                    &nbsp; <BsStarFill/> {review.rating}
+                                </p>)}
+                            </Card.Body>
                         </ListGroupItem>
                     </ListGroup>
                 </Card.Body>
