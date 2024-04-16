@@ -112,7 +112,7 @@ class MovieDetail extends Component {
                         <ListGroupItem>
                             <h5>Reviews:</h5>
                             <Row>
-                                {selectedMovie.reviews && selectedMovie.reviews.map((review, i) => (
+                                {selectedMovie.movie_reviews && selectedMovie.movie_reviews.map((review, i) => (
                                     <Col key={i} xs={12} sm={6} md={4} lg={3}>
                                         <div style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '5px' }}>
                                             <p style={{ fontWeight: 'bold' }}>{review.username}</p>
