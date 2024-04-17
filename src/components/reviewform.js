@@ -81,7 +81,6 @@ class MovieDetail extends Component {
 
     render() {
         const { selectedMovie, movieId } = this.props;
-        const username = useSelector(state => state.auth.username); // Accessing username from Redux store
 
         if (!selectedMovie) {
             return <div>Loading....</div>;
@@ -124,7 +123,7 @@ class MovieDetail extends Component {
                 </Card.Body>
                 <Card.Body>
                     <h5>Leave a Review</h5>
-                    <ReviewForm movieId={movieId} username={username} /> {/* Passing username to ReviewForm */}
+                    <ReviewForm movieId={movieId} /> 
                 </Card.Body>
             </Card>
         );
