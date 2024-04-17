@@ -73,9 +73,7 @@ import { useSelector } from 'react-redux';
 
 const ReviewForm = ({ movieId }) => {
   const dispatch = useDispatch();
-  const loggedInUser = useSelector(state => state.auth.user);
   const [formData, setFormData] = useState({
-    username: loggedInUser.username, // Set the initial value to the username of the logged-in user
     rating: '',
     review: ''
   });
@@ -92,8 +90,8 @@ const ReviewForm = ({ movieId }) => {
     if (!rating || !review) {
       setError('Please provide a rating and a review.');
     } else {
-      dispatch(addReview(movieId, { username, rating, review })); // Include username in the payload
-      setFormData({ username: loggedInUser.username, rating: '', review: '' }); // Reset username to logged-in user's username
+      dispatch(addReview(movieId, {rating, review }));
+      setFormData({rating: '', review: '' });
       setError('');
     }
   };
