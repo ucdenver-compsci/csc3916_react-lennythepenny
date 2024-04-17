@@ -25,6 +25,7 @@ const ReviewForm = ({ movieId }) => {
     if (!rating || !review) {
       setError('Please provide a rating and a review.');
     } else {
+      const username = loggedInUser.username;
       dispatch(addReview(movieId, { rating, review, username}));
       setFormData({ rating: '', review: '' });
       setError('');
