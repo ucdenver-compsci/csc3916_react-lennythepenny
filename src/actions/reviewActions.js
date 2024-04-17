@@ -4,9 +4,10 @@
 export const ADD_REVIEW = 'ADD_REVIEW';
 
 // Action creator function for adding a review
-export function addReview(review) {
+export function addReview(movieId, reviewData) {
   return {
     type: ADD_REVIEW,
-    review: review
+    movieId: movieId,
+    review: reviewData
   };
 }
