@@ -58,7 +58,7 @@ class MovieDetail extends Component {
                 </Card.Body>
                 <Card.Body>
                     <h5>Leave a Review</h5>
-                    <ReviewForm movieId={movieId} />
+                    <ReviewForm movieId={movieId} username={username}/>
                 </Card.Body>
             </Card>
         );
