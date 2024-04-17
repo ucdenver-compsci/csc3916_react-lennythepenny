@@ -56,10 +56,10 @@ class MovieDetail extends Component {
                         </ListGroupItem>
                     </ListGroup>
                 </Card.Body>
-                {/* Render the ReviewForm component */}
                 <Card.Body>
                     <h5>Leave a Review</h5>
                     <ReviewForm movieId={movieId} />
+                    <ReviewForm movieId={movieId} loggedInUsername={loggedInUsername} />
                 </Card.Body>
             </Card>
         );

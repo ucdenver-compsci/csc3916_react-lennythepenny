@@ -25,7 +25,7 @@ const ReviewForm = ({ movieId }) => {
     if (!rating || !review) {
       setError('Please provide a rating and a review.');
     } else {
-      const username = loggedInUser.username;
+      const username = loggedInUser ? loggedInUser.username : '';
       dispatch(addReview(movieId, { rating, review, username}));
       setFormData({ rating: '', review: '' });
       setError('');
@@ -47,7 +47,7 @@ const ReviewForm = ({ movieId }) => {
           required
         />
       </Form.Group>
-      <Form.Group controlId="review"> {/* Changed from 'comment' to 'review' */}
+      <Form.Group controlId="review"> 
         <Form.Label>Review</Form.Label>
         <Form.Control
           as="textarea"
