@@ -8,7 +8,7 @@ import ReviewForm from './reviewform';
 
 class MovieDetail extends Component {
     componentDidMount() {
-        const { dispatch, selectedMovie, movieId,loggedInUsername } = this.props;
+        const { dispatch, selectedMovie, movieId, loggedInUsername } = this.props;
         if (!selectedMovie) {
             dispatch(fetchMovie(movieId));
         }
@@ -17,7 +17,7 @@ class MovieDetail extends Component {
     render() {
         const { selectedMovie, movieId } = this.props;
 
-        if (!selectedMovie || loggedInUsername) {
+        if (!selectedMovie || loggedInUsername || loggedInUsername.username) {
             return <div>Loading....</div>;
         }
 

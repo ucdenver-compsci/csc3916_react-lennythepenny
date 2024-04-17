@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const ReviewForm = ({ movieId }) => {
   const dispatch = useDispatch();
-  const loggedInUser = useSelector(state => state.auth.user);
+  const loggedIn = useSelector(state => state.auth.user);
   const [formData, setFormData] = useState({
     rating: '',
     review: ''
@@ -25,7 +25,7 @@ const ReviewForm = ({ movieId }) => {
     if (!rating || !review) {
       setError('Please provide a rating and a review.');
     } else {
-      const username = loggedInUser ? loggedInUser.username : '';
+      const username = loggedIn ? loggedIn.username : '';
       dispatch(addReview(movieId, { rating, review, username}));
       setFormData({ rating: '', review: '' });
       setError('');
