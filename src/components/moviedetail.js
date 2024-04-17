@@ -8,16 +8,16 @@ import ReviewForm from './reviewform';
 
 class MovieDetail extends Component {
     componentDidMount() {
-        const { dispatch, selectedMovie, movieId, loggedIn } = this.props;
+        const { dispatch, selectedMovie, movieId} = this.props;
         if (!selectedMovie) {
             dispatch(fetchMovie(movieId));
         }
     }
 
     render() {
-        const { selectedMovie, movieId, loggedIn } = this.props;
+        const { selectedMovie, movieId} = this.props;
 
-        if (!selectedMovie || loggedIn.username || loggedIn) {
+        if (!selectedMovie) {
             return <div>Loading....</div>;
         }
 
@@ -59,7 +59,6 @@ class MovieDetail extends Component {
                 <Card.Body>
                     <h5>Leave a Review</h5>
                     <ReviewForm movieId={movieId} />
-                    <ReviewForm movieId={movieId} loggedIn={loggedIn.username} />
                 </Card.Body>
             </Card>
         );
@@ -70,7 +69,6 @@ const mapStateToProps = (state, ownProps) => {
     return {
         selectedMovie: state.movie.selectedMovie,
         movieId: ownProps.movieId,
-        loggedIn: state.auth.user
     }
 }
 
