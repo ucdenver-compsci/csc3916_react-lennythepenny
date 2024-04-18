@@ -17,49 +17,17 @@ const ReviewForm = ({ movieId, username }) => { // Receive username prop
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    // const onSubmit = e => {
-    //     e.preventDefault();
-    //     if (!rating || !review) {
-    //         setError('Please provide a rating and a review.');
-    //     } else {
-    //         dispatch(addReview(movieId, { username, rating, review }));
-    //         setFormData({ rating: '', review: '' });
-    //         setError('');
-    //     }
-    // };
-    // export default ReviewForm;
-const onSubmit = async (e) => {
-    e.preventDefault();
-    if (!rating || !review) {
-        setError('Please provide a rating and a review.');
-    } else {
-        try {
-            const response = await fetch('/reviews', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    movieId,
-                    username,
-                    review,
-                    rating,
-                }),
-            });
-            if (response.ok) {
-                // Handle successful review submission
-                setFormData({ rating: '', review: '' });
-                setError('');
-            } else {
-                // Handle failed review submission
-                setError('Failed to submit review. Please try again.');
-            }
-        } catch (error) {
-            console.error('Error submitting review:', error);
-            setError('An unexpected error occurred. Please try again later.');
+    const onSubmit = e => {
+        e.preventDefault();
+        if (!rating || !review) {
+            setError('Please provide a rating and a review.');
+        } else {
+            console.log('Submitting review:', { movieId, username, rating, review });
+            dispatch(addReview(movieId, { username, rating, review }));
+            setFormData({ rating: '', review: '' });
+            setError('');
         }
-    }
-};
+    };
 
     return (
         <Form onSubmit={onSubmit}>
