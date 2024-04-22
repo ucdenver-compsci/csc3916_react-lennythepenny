@@ -3,7 +3,7 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addReview } from '../actions/reviewActions';
 
-const ReviewForm = ({ movieId, username }) => { // Receive username prop
+const ReviewForm = ({ movieId, username }) => { //including username prop too 
     const dispatch = useDispatch();
     const [formData, setFormData] = useState({
         rating: '',

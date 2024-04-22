@@ -15,7 +15,8 @@ class MovieDetail extends Component {
     }
 
     render() {
-        const { selectedMovie, movieId, username } = this.props; // Add username to props
+        //need to include username
+        const { selectedMovie, movieId, username } = this.props; 
 
         if (!selectedMovie) {
             return <div>Loading....</div>;
